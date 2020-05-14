@@ -1,4 +1,13 @@
+import Vue from 'vue'
+import App from './pages/App.vue'
 
+new Vue({
+    el: '#app',
+    render: a => a(App)
+});
+
+
+/*
 var customerApi = Vue.resource('/api/customer{/id}');
 var accountApi = Vue.resource('/api/accounts{/id}');
 
@@ -80,4 +89,4 @@ var app = new Vue({
     // )
     // )
     }
-})
+})*/
