@@ -45,7 +45,7 @@ public class DataController {
         if(user == null){
             return new ArrayList<Account>();
         }
-        else return accountRepo.findAllByUser(user);
+        else return accountRepo.getAllByUser(user);
     }
 
     @PostMapping("/accounts")

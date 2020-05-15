@@ -20,7 +20,7 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private int number;
+    private String number;
 
     private short secureKey;
 

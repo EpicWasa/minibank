@@ -22,7 +22,7 @@ public class Account {
     private double amount;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn( name = "customer_id")
+    @JoinColumn( name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)

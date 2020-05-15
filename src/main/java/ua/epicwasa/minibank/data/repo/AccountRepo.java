@@ -7,6 +7,6 @@ import ua.epicwasa.minibank.data.entity.User;
 
 @Component
 public interface AccountRepo extends JpaRepository<Account, Long> {
-    public Iterable<Account> findAllByUser(User user);
+    public Iterable<Account> getAllByUser(User user);
 }
 
