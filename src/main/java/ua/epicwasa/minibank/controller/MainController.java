@@ -17,7 +17,7 @@ import java.util.HashMap;
 @RequestMapping("/")
 public class MainController {
 
-    @Value("${spring.profiles.active}")
+    @Value("${spring.profiles.active:prod}")
     private String profile;
 
     @Autowired

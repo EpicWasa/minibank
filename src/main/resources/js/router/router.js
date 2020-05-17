@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import AccountList from 'components/AccountList.vue'
 import AccountsPage from 'components/AccountsPage/AccountsPage.vue'
-import ContractsPage from "../components/ContractsPage/ContractsPage.vue";
+import ContractsPage from "components/ContractsPage/ContractsPage.vue";
 
 Vue.use(VueRouter);
 
