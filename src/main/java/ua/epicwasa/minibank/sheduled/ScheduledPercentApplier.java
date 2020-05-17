@@ -24,24 +24,24 @@ public class ScheduledPercentApplier {
     @Autowired
     DepositRepo depositRepo;
 
-//    @Scheduled(fixedRate = 86400000)
-//    public void applyDividents(){
-//        Iterable<DepositContract> deposits = depositRepo.findAll();
-//        for (DepositContract d:deposits) {
-//            d.setInitialSum(d.getInitialSum()+d.getInitialSum()*(d.getRate().getRate()/100/12/30));
-//            depositRepo.save(d);
-//            if(d.getDateOfExpiration().equals(LocalDate.now())){
-//                d.getAccount().setAmount(d.getAccount().getAmount()+d.getInitialSum());
-//                depositRepo.delete(d);
-//            }
-//        }
-//        Iterable<LoanContract> loans = loanRepo.findAll();
-//        for (LoanContract l:loans) {
-//            Account account =  l.getAccount();
-//           account.setAmount(account.getAmount()-l.getInitialSum()*l.getRate().getRate()/100/12/30);
-//
-//            accountRepo.save(account);
-//        }
-//    }
+    @Scheduled(fixedRate = 86400000)
+    public void applyDividents(){
+        Iterable<DepositContract> deposits = depositRepo.findAll();
+        for (DepositContract d:deposits) {
+            d.setInitialSum(d.getInitialSum()+d.getInitialSum()*(d.getRate().getRate()/100/12/30));
+            depositRepo.save(d);
+            if(d.getDateOfExpiration().equals(LocalDate.now())){
+                d.getAccount().setAmount(d.getAccount().getAmount()+d.getInitialSum());
+                depositRepo.delete(d);
+            }
+        }
+        Iterable<LoanContract> loans = loanRepo.findAll();
+        for (LoanContract l:loans) {
+            Account account =  l.getAccount();
+           account.setAmount(account.getAmount()-l.getInitialSum()*l.getRate().getRate()/100/12/30);
+
+            accountRepo.save(account);
+        }
+    }
 
 }
