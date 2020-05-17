@@ -6,8 +6,10 @@
 
 <script>
     import AccountCard from 'components/AccountCard.vue'
+    import {mapState} from 'vuex'
+
     export default {
-        props: ['accounts', 'cards'],
+        computed: mapState(['accounts', 'cards']),
         components: {
             AccountCard
         },

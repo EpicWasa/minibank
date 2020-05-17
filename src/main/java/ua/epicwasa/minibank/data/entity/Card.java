@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -24,10 +25,20 @@ public class Card {
 
     private short secureKey;
 
-    private Date expirationDate;
+    private LocalDate expirationDate;
+
+    private LocalDate creationDate;
+
+    public Card(Account account, String name) {
+        this.account = account;
+        this.name = name;
+    }
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "account_id")
     private Account account;
+
+    private String name;
+
 
 }

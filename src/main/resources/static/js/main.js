@@ -4,11 +4,13 @@ import Vuetify from 'vuetify'
 import '@babel/polyfill'
 import 'vuetify/dist/vuetify.min.css'
 import store from "store/store";
+import router from 'router/router'
 
 Vue.use(Vuetify,{ iconfont: 'mdiSvg' });
 new Vue({
     el: '#app',
     store: store,
+    router: router,
     vuetify: new Vuetify(),
     render: a => a(App)
 });

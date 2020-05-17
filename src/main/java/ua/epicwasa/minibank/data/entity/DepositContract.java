@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -24,11 +25,13 @@ public class DepositContract {
 
     private double initialSum;
 
-    private LocalDateTime dateOfSigning;
+    private LocalDate dateOfSigning;
 
-    private LocalDateTime dateOfExpiration;
+    private LocalDate dateOfExpiration;
 
-    private Double rate;  //rate is written in parts of 1, example: 0.12
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn( name = "rate")
+    private Rate rate;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "customer_account_id")
@@ -40,4 +43,9 @@ public class DepositContract {
 
     private boolean preExpiration;
 
+    public DepositContract(double initialSum, Rate rate, Account account) {
+        this.initialSum = initialSum;
+        this.rate = rate;
+        this.account = account;
+    }
 }

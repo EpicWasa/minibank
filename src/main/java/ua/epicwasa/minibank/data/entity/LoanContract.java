@@ -6,8 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -24,12 +23,13 @@ public class LoanContract {
     private double initialSum;
 
     @Column(updatable = false)
-    private LocalDateTime dateOfSigning;
+    private LocalDate dateOfSigning;
 
-    private LocalDateTime dateOfExpiration;
+    private LocalDate dateOfExpiration;
 
-    @Column(updatable = false)
-    private Double rate;  //rate is written in parts of 1, example: 0.12
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn( name = "rate")
+    private Rate rate;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn( name = "customer_account_id")

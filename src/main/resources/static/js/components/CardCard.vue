@@ -18,16 +18,16 @@
 </template>
 
 <script>
-
+    import {mdiCard} from '@mdi/js'
     export default {
-        props:['card'],
-        data(){
-            return{
+        props: ['card'],
+        data() {
+            return {
                 payment: mdiCard,
             }
-        }
+        },
+
     }
-    import {mdiCard} from '@mdi/js'
 </script>
 
 <style>

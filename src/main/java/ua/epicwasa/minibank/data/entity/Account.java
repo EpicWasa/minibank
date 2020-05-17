@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -29,6 +30,9 @@ public class Account {
     @JoinColumn( name = "currency_id")
     private Currency currency;
 
+    private String name;
+
+    private LocalDate creationDate;
 
     public Account(double amount, User user, Currency currency) {
         this.amount = amount;

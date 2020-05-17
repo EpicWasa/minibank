@@ -7,21 +7,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 
 @Entity
 @Table
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Currency implements Serializable {
+@Getter
+@Setter
+public class Rate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn( name = "currency_id")
+    private Currency currency;
 
+    private String type; //can be either "deposit" or "loan"
+
+    private int duration; //duration in moths, 1,2....
+
+    private double rate;
 }
