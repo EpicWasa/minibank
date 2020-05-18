@@ -2,7 +2,7 @@
     <v-row justify="center">
         <v-dialog v-model="dialog" persistent max-width="600px">
             <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark v-on="on">New Account</v-btn>
+                <v-btn color="primary" dark v-on="on">New Deposit</v-btn>
             </template>
             <v-card>
                 <v-card-title>
